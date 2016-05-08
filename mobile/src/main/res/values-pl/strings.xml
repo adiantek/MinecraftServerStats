@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="action_settings">Ustawienia</string>
+    <string name="featured_servers">Polecane serwery</string>
+    <string name="promoted_servers">Promowane serwery</string>
+    <string name="your_servers">Twoje serwery</string>
+    <string name="add_server">Dodaj serwer</string>
+    <string name="remove_server">Usuń serwer</string>
+    <string name="refresh">Odśwież</string>
+</resources>

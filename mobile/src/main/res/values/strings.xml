@@ -1,4 +1,11 @@
 <resources>
-    <string name="app_name">Minecraft Server Stats</string>
+    <string name="app_name" translatable="false">Minecraft Server Stats</string>
     <string name="action_settings">Settings</string>
+    <string name="promoted_servers">Promoted servers</string>
+    <string name="featured_servers">Featured servers</string>
+    <string name="your_servers">Your servers</string>
+    <string name="add_server">Add server</string>
+    <string name="remove_server">Remove server</string>
+    <string name="refresh">Refresh</string>
+    <string name="base64EncodedPublicKey" translatable="false">MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAvn74imlnU+RfxxAoU4bj3Cn15aoCQ5PSl7vx9xrTzHhxnJdL2xkSrGW/ZnWDDzoWQimfORiuLACvEc4HEiZEhXy7GlVSqK/DTMeZLrmceymSlgmwVf3ddz7vlm78Oj4xzV1RN2ztkzZ8kYQs196Rqeac0ZOJIO92KisWe/Wr0938QiFyo/5m6wBpNf+hGQqhmH/iZSHFUz0gMofs8xEIgUwzFV2hhtAKmniYHe40ztfB+H1idR3znii0NR1yJh1ILi1iNTwlIaJsKakGHCcFqOwl8Rj7d4gqRaRvAHeTtq+Kkp+i3Y6k56Mm5Blox9rTGpxrO7+vzlTP1FJkPuEcyQIDAQAB</string>
 </resources>

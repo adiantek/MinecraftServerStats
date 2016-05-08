@@ -1,31 +1,31 @@
 package ovh.adiantek.android.minecraftserverstats;
 
+import android.app.Activity;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 
-public class MainActivity extends AppCompatActivity {
+import ovh.adiantek.android.minecraftserverstats.util.IabHelper;
+import ovh.adiantek.android.minecraftserverstats.util.IabResult;
+
+public class MainActivity extends Activity {
+
+    IabHelper mHelper;
+    String resultError;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+        mHelper = new IabHelper(this, getString(R.string.base64EncodedPublicKey));
+        mHelper.startSetup(new IabHelper.OnIabSetupFinishedListener() {
+            public void onIabSetupFinished(IabResult result) {
+                if (!result.isSuccess()) {
+                    resultError = result.getMessage();
+                } else
+                    resultError = null;
             }
         });
+        setContentView(R.layout.activity_main);
     }
 
     @Override
@@ -36,6 +36,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
+    public void onDestroy() {
+        super.onDestroy();
+        if (mHelper != null) mHelper.dispose();
+        mHelper = null;
+        resultError = null;
+    }
+
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
@@ -43,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_add_server) {
             return true;
         }
 
